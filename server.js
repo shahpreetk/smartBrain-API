@@ -35,6 +35,6 @@ app.put('https://powerful-caverns-38731.herokuapp.com/image',image.handleImage(d
 
 app.post('https://powerful-caverns-38731.herokuapp.com/imageurl',image.handleApiCall)
 
-app.listen(process.env.PORT||3000, () => {
+app.listen(process.env.PORT||3001, () => {
   console.log(`Server is listening on port ${process.env.PORT}`);
 })
