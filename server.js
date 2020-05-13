@@ -25,15 +25,15 @@ app.get('/', (req, res) => {
     res.send('it is working!');
 })
 
-app.post('https://powerful-caverns-38731.herokuapp.com/signin', signin.handleSignin(bcrypt,db))
+app.post('/signin', signin.handleSignin(bcrypt,db))
 
-app.post('https://powerful-caverns-38731.herokuapp.com/register', register.handleRegister(bcrypt,db))
+app.post('/register', register.handleRegister(bcrypt,db))
 
-app.get('https://powerful-caverns-38731.herokuapp.com/profile/:id',profile.handleProfileGet(db))
+app.get('/profile/:id',profile.handleProfileGet(db))
 
-app.put('https://powerful-caverns-38731.herokuapp.com/image',image.handleImage(db))
+app.put('/image',image.handleImage(db))
 
-app.post('https://powerful-caverns-38731.herokuapp.com/imageurl',image.handleApiCall)
+app.post('/imageurl',image.handleApiCall)
 
 app.listen(process.env.PORT||3001, () => {
   console.log(`Server is listening on port ${process.env.PORT}`);
