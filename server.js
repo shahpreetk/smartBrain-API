@@ -27,13 +27,15 @@ app.get('/', (req, res) => {
     res.send(database.users);
 })
 
-app.post('/signin', (req,res)=>{ signin.handleSignin(req,res,bcrypt,db)})
+app.post('/signin', signin.handleSignin(bcrypt,db))
 
-app.post('/register', (req,res)=>{register.handleRegister(req,res,bcrypt,db)})
+app.post('/register', register.handleRegister(bcrypt,db))
 
-app.get('/profile/:id',(req,res)=>{profile.handleProfileGet(req,res,db)})
+app.get('/profile/:id',profile.handleProfileGet(db))
 
-app.put('/image',(req,res)=>{image.handleImage(req,res,db)})
+app.put('/image',image.handleImage(db))
+
+app.post('/imageurl',image.handleApiCall)
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');

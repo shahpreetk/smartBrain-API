@@ -1,9 +1,12 @@
-const handleRegister = (req,res,bcrypt,db) => {
+const handleRegister = (bcrypt,db) =>(req,res)=> {
     const {
         email,
         name,
         password
     } = req.body;
+    if(!email||!password||!name){
+        return res.status(400).json('please fill all details ');
+    }
     var hash=bcrypt.hashSync(password);
         db.transaction(trx=>{
             trx.insert({
